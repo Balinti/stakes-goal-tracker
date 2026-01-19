@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     if (features.hasSupabase) {
       try {
-        const supabase = createClient()
+        const supabase = await createClient()
         const { data: { user } } = await supabase.auth.getUser()
         userId = user?.id || null
         email = user?.email || undefined

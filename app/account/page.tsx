@@ -20,7 +20,7 @@ export default async function AccountPage({
 
   if (features.hasSupabase) {
     try {
-      const supabase = createClient()
+      const supabase = await createClient()
       const { data: { user: authUser } } = await supabase.auth.getUser()
       user = authUser
 

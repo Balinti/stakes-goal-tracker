@@ -11,7 +11,7 @@ export default async function PricingPage() {
   // Try to get user session if Supabase is configured
   if (features.hasSupabase) {
     try {
-      const supabase = createClient()
+      const supabase = await createClient()
       const { data: { user } } = await supabase.auth.getUser()
       userId = user?.id || null
 

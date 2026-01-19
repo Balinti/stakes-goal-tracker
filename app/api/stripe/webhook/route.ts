@@ -115,7 +115,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     return
   }
 
-  const supabase = createServiceClient()
+  const supabase = await createServiceClient()
 
   // Get subscription details from Stripe
   const stripe = getStripe()
@@ -161,7 +161,7 @@ async function handleSubscriptionUpdated(subscription: SubscriptionData) {
     return
   }
 
-  const supabase = createServiceClient()
+  const supabase = await createServiceClient()
 
   const { error } = await supabase
     .from('subscriptions')
@@ -188,7 +188,7 @@ async function handleSubscriptionDeleted(subscription: SubscriptionData) {
     return
   }
 
-  const supabase = createServiceClient()
+  const supabase = await createServiceClient()
 
   const { error } = await supabase
     .from('subscriptions')
